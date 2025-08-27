@@ -7,9 +7,27 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  /* @apply bg-white dark:bg-gray-500; */
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     color-scheme: dark;
+  } */
+}
+
+@layer components {
+  .text-standard {
+    @apply text-[16px] leading-none text-black;
   }
+}
+.optionSelectFood{
+  font-size: 16px;
+}
+/* smth for svg recoloring attempts */
+.iconMaskButton {
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 24px;
+  height: 24px;
 }
