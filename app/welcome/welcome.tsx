@@ -1,9 +1,9 @@
-// https://svg-art.ru/?page_id=1047#img-p
 import { MyButton } from '~/components/button';
 import chevronDown from '../../public/img/arrow_down.svg';
 import ExampleFormsTailwind from '~/components/exampleFormsTailwind';
 
 // https://doka.guide/recipes/checkbox-radio-style/
+// https://svg-art.ru/?page_id=1047#img-p
 // https://tailwindcss.com/plus/ui-blocks/application-ui/forms/form-layouts
 
 // npm i @heroicons/react
@@ -13,20 +13,30 @@ import ExampleFormsTailwind from '~/components/exampleFormsTailwind';
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { DropDownCustom, DropDownHTML } from '~/components/dropdown';
-import { CheckBoxes } from '~/components/checkboxes';
+import { SelectBoxes } from '~/components/checkboxes';
 import { BigTextInput, SimpleTextInput, TextExamples } from '~/components/textFields';
-import { RadioButtonsExamples } from '~/components/radiobuttons';
+import { CheckBoxesExample, RadioButtonsExamples } from '~/components/radiobuttons';
+import React, { useState } from 'react';
 
 export function Welcome() {
+  const [inputValueTF1, setInputValueTF1] = useState(' ');
+  const [submittedValueTF1, setSubmittedValueTF1] = useState<string | null>(null);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setSubmittedValueTF1(inputValueTF1);
+    }
+  };
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  // string for img, null when nithing was set
+
 
   return (
     <main className="flex flex-col items-center justify-center py-5 bg-gray-300">
       <div className='flex flex-col items-center justify-center gap-[16px] w-full max-w-[500px]'>
 
-
         <div className='flex gap-[8px] items-end w-full'>
-          <SimpleTextInput />
-          <MyButton />
+          <SimpleTextInput value={inputValueTF1} onChange={setInputValueTF1} onKeyDown={handleKeyDown} />
+          <MyButton onImageChange={setImageSrc} />
         </div>
         <BigTextInput />
         <div className='DROPS flex flex-row gap-[12px] w-full'>
@@ -38,11 +48,29 @@ export function Welcome() {
           />
         </div>
 
+        <SelectBoxes />
+
+        {/* <div className='h-1 w-full bg-black' />
+
+        <div className='flex gap-[32px]'>
+          <CheckBoxesExample />
+          <RadioButtonsExamples />
+        </div> */}
+        {/* <ExampleFormsTailwind /> */}
+
         <div className='h-1 w-full bg-black' />
 
-        <CheckBoxes />
-        <RadioButtonsExamples />
-        {/* <ExampleFormsTailwind /> */}
+        <div>
+          <label htmlFor="form1">Form result 1</label>
+          <div id="form1">
+            {submittedValueTF1 !== null && (
+              <div>{submittedValueTF1}</div>
+            )}
+            <div style={{ marginTop: '16px' }}>
+              {imageSrc && <img src={imageSrc} alt="img-uploaded" style={{ maxWidth: '300px', height: '200px' }} />}
+            </div>
+          </div>
+        </div>
       </div>
     </main >
   );

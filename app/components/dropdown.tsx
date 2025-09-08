@@ -83,7 +83,8 @@ export function DropDownHTML() {
                 <select
                     id='test-dropdown'
                     name='test-dropdown'
-                    className="DropDown appearance-none col-start-1 row-start-1 py-[8px] pl-[16px] pr-[32px]
+                    className="DropDown appearance-none 
+                        col-start-1 row-start-1 py-[8px] pl-[16px] pr-[32px]
                         text-[16px] text-black
                         bg-white *:bg-gray-300
                         outline-[1px] -outline-offset-[1px] outline-black 
@@ -96,6 +97,7 @@ export function DropDownHTML() {
                     </optgroup>
                     <optgroup label="3D">
                         <option value="sculpting">Скульптинг</option>
+                        <option value="sculpting">Риггинг персонажа</option>
                         <option value="cinema4D">Cinema 4D</option>
                         <option value="blender">Blender</option>
                     </optgroup>
@@ -104,10 +106,9 @@ export function DropDownHTML() {
 
                     <svg width="14" height="14" fill="none" className='fill-gray-600'><path d="m6 9.5 5-4.033V2.5L6 6.533 1 2.5v2.967L6 9.5Z" /></svg>
                     {/* am i stupid or how do you properly import svg from folder and then customize it? what's the pipeline? 
-                        was i supposed to make a component with svg and path? 
-                        or do i not know how to import it properly?
+                        was i supposed to make a component with svg and path?
                         or does one just use libraries like Heroicons and Iconify?
-                        in react native png got recolored with accent-color, png, not even svg
+                        in react native png got recolored with accent-color -- png, not even svg
                         i feel like i'm missing smth :( */}
                 </div>
             </div>

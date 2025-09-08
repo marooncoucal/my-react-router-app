@@ -1,4 +1,17 @@
-export function SimpleTextInput() {
+type Props = {
+    value: string;
+    onChange: (val: string) => void;
+    onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+};
+
+export function SimpleTextInput({ value, onChange, onKeyDown }: Props) {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = e.target.value
+        if (val) {
+            onChange(e.target.value)
+        }
+    };
+
     return (
         <div className="w-full">
             <label htmlFor="name" className="block text-[16px] font-medium text-black">
@@ -10,11 +23,14 @@ export function SimpleTextInput() {
                     name="name"
                     type="name"
                     autoComplete="name"
+                    value={value}
+                    onChange={handleInputChange}
+                    onKeyDown={onKeyDown}
                     className="block w-full px-3 py-1.5 
-            text-base text-black text-[16px]
-            bg-white outline-1 -outline-offset-1 outline-black
-            placeholder:text-gray-500 
-            focus:outline-[3px] focus:-outline-offset-[3px] focus:outline-black"
+                    text-base text-black text-[16px]
+                    bg-white outline-1 -outline-offset-1 outline-black
+                    placeholder:text-gray-500 
+                    focus:outline-[3px] focus:-outline-offset-[3px] focus:outline-black"
                 />
             </div>
         </div>
