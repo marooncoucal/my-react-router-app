@@ -17,6 +17,7 @@ import { SelectBoxes } from '~/components/checkboxes';
 import { BigTextInput, SimpleTextInput, TextExamples } from '~/components/textFields';
 import { CheckBoxesExample, RadioButtonsExamples } from '~/components/radiobuttons';
 import React, { useState } from 'react';
+import Book from '~/components/book';
 
 export function Welcome() {
   const [inputValueTF1, setInputValueTF1] = useState(' ');
@@ -32,7 +33,9 @@ export function Welcome() {
 
   return (
     <main className="flex flex-col items-center justify-center py-5 bg-gray-300">
+
       <div className='flex flex-col items-center justify-center gap-[16px] w-full max-w-[500px]'>
+
 
         <div className='flex gap-[8px] items-end w-full'>
           <SimpleTextInput value={inputValueTF1} onChange={setInputValueTF1} onKeyDown={handleKeyDown} />
