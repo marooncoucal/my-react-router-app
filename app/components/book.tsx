@@ -1,8 +1,11 @@
 "use client"
 
+// https://andrewplummer.github.io/peel-js/
+
 //https://nodlik.github.io/StPageFlip/
 //https://nodlik.github.io/react-pageflip/
 //https://nodlik.github.io/StPageFlip/docs/classes/render.html#setpagerect
+//https://github.com/Nodlik/StPageFlip/issues/23
 
 import { useEffect, useRef } from "react";
 // import type { PageFlip, SizeType } from "page-flip";
